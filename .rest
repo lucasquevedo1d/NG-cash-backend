@@ -1,0 +1,74 @@
+POST http://localhost:3003/user
+Content-Type:application/json
+
+
+{
+    "username":"Luiz21",
+    "password": "12345678"
+}
+
+
+###
+# @name login
+POST http://localhost:3003/login
+Content-Type:application/json
+
+
+{
+    "username":"luiz21",
+    "password": "12345678"
+}
+
+
+###
+GET http://localhost:3003/getAllUser
+Content-Type:application/json
+Authorization: {{token}}
+
+
+
+###
+@token = {{login.response.body.token}}
+PUT http://localhost:3003/balance
+Content-Type:application/json
+Authorization: {{token}}
+
+
+{
+ "accountId":"47f1165e-a231-46f4-a6dc-73cd80c0faaf",
+ "username":"Lucas",
+ "balance":10
+}
+
+
+
+###
+GET http://localhost:3003/balance/47f1165e-a231-46f4-a6dc-73cd80c0faaf
+Content-Type:application/json
+Authorization: {{token}}
+
+
+
+
+
+###
+GET http://localhost:3003/transiction/47f1165e-a231-46f4-a6dc-73cd80c0faaf
+Content-Type:application/json
+Authorization: {{token}}
+
+
+
+
+###
+GET http://localhost:3003/debitTransiction/8fc400e2-dde8-46e0-9094-85b0aeae6d2e
+Content-Type:application/json
+Authorization: {{token}}
+
+
+
+
+###
+GET http://localhost:3003/creditTransiction/e87e06f7-7722-4f7c-b7ac-09b610be86ac
+Content-Type:application/json
+Authorization: {{token}}
+
